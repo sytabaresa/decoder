@@ -17,14 +17,18 @@ func main() {
 	for sin.Scan() {
 		token := sin.Bytes()
 		//fmt.Printf("%v \n", token)
-		e, err := ParseTokenEduardo(token)
+		e, err := ParseToken(token)
 		if err != nil {
 			serr.WriteString(fmt.Sprintf("dato no válido: %s\n", err))
 			serr.Flush()
 		} else {
 			sout.WriteString(fmt.Sprintf("%v \n", e))
 			//fmt.Printf("%s \n", e)
+			//sout.Write(e)
 			sout.Flush()
 		}
+		//sout.WriteString(fmt.Sprintf("%x\n", token))
+		// sout.Write(token)
+		// sout.Flush()
 	}
 }
